@@ -1,151 +1,73 @@
 <template>
-  <v-container>
-    <v-row class="text-center">
-      <v-col cols="12">
-        <v-img
-          :src="logo"
-          class="my-3"
-          contain
-          height="200"
-        />
-      </v-col>
+  <v-container class="mt-10">
+   <v-select
+          :items="items"
+          label="Solo field"
+          solo
+        ></v-select>
+  <v-card
+    class="mx-auto"
+    max-width="400"
+  >
+    <v-img
+      class="white--text align-end"
+      height="300px"
+      :src="cat"
+    >
+    </v-img>
 
-      <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">
-          <div>Welcome to the Vuetify 3 Alpha</div>
-        </h1>
+    <v-card-title>Top 10 Australian beaches</v-card-title>
+    <v-card-subtitle class="pb-0">
+      {{image}}
+    </v-card-subtitle>
 
+    <v-card-text class="text--primary">
+      <div>Whitehaven Beach</div>
 
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br>please join our online
-          <a
-            href="https://community.vuetifyjs.com"
-            target="_blank"
-          >Discord Community</a>
-        </p>
-      </v-col>
+      <div>Whitsunday Island, Whitsunday Islands</div>
+    </v-card-text>
 
-      <v-col
-        class="mb-5"
-        cols="12"
+    <v-card-actions>
+      <v-btn
+        color="orange"
+        text
       >
-        <h2 class="headline font-weight-bold mb-5">
-          What's next?
-        </h2>
+        Share
+      </v-btn>
 
-        <v-row justify="center">
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ next.text }}
-          </a>
-        </v-row>
-      </v-col>
-
-      <v-col
-        class="mb-5"
-        cols="12"
+      <v-btn
+        color="orange"
+        text
       >
-        <h2 class="headline font-weight-bold mb-5">
-          Important Links
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
-        </v-row>
-      </v-col>
-
-      <v-col
-        class="mb-5"
-        cols="12"
-      >
-        <h2 class="headline font-weight-bold mb-5">
-          Ecosystem
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
-          </a>
-        </v-row>
-      </v-col>
-    </v-row>
+        Explore
+      </v-btn>
+    </v-card-actions>
+  </v-card>
   </v-container>
 </template>
 
 <script>
 import logo from '../assets/logo.svg'
+// import { ref } from "vue";
+// import image from '../main'
 
 export default {
   name: 'HelloWorld',
-
   data: () => ({
-    ecosystem: [
-      {
-        text: 'vuetify-loader',
-        href: 'https://github.com/vuetifyjs/vuetify-loader',
-      },
-      {
-        text: 'github',
-        href: 'https://github.com/vuetifyjs/vuetify',
-      },
-      {
-        text: 'awesome-vuetify',
-        href: 'https://github.com/vuetifyjs/awesome-vuetify',
-      },
-    ],
-    importantLinks: [
-      {
-        text: 'Chat',
-        href: 'https://community.vuetifyjs.com',
-      },
-      {
-        text: 'Made with Vuetify',
-        href: 'https://madewithvuejs.com/vuetify',
-      },
-      {
-        text: 'Twitter',
-        href: 'https://twitter.com/vuetifyjs',
-      },
-      {
-        text: 'Articles',
-        href: 'https://medium.com/vuetify',
-      },
-    ],
+    items: ['Emocionante', 'Tristecillo', 'Amoroso', ''],
     logo,
-    whatsNext: [
-      {
-        text: 'Explore components',
-        href: 'https://vuetifyjs.com',
-      },
-      {
-        text: 'Roadmap',
-        href: 'https://vuetifyjs.com/introduction/roadmap/',
-      },
-      {
-        text: 'Frequently Asked Questions',
-        href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
-      },
-    ],
+    cat: {
+    },
   }),
+  created() {
+    fetch("https://api.thecatapi.com/v1/images/search", 
+        {headers: {"x-api-key" : "297ece98-a6ac-419d-9d86-fbe4c3ccdeac"}})
+        .then((response) => {
+          return response.json()
+        }).then((json) => {
+            console.log(json);
+            this.cat = json[0].url;
+        });
+  },
 }
 </script>
