@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-main>
+      <Navbar/>
       <HelloWorld/>
       <Select/>
     </v-main>
@@ -10,6 +11,7 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import Select from './components/Select.vue'
+import Navbar from './components/Navbar.vue'
 // import HelloWorld from './components/HelloWorld.vue'
 
 export default {
@@ -18,6 +20,7 @@ export default {
   components: {
     HelloWorld,
     Select,
+    Navbar,
   },
 
   data: () => ({

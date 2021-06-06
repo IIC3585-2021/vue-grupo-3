@@ -5,12 +5,16 @@
     max-width="500"
   >
     <v-img
-      class="white--text align-end"
+      class="white--text align-center p-10"
       height="300px"
       :src="cat"
     >
     </v-img>
-
+    <v-btn
+    class="float-right"
+    icon>
+      <v-icon color="pink">mdi-star</v-icon>
+    </v-btn>
     <v-card-title>¿Cómo estuvo tu día?</v-card-title>
     <v-card-subtitle class="pb-0">
       Tenemos un gatito para ti
