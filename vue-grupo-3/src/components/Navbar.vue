@@ -1,27 +1,20 @@
 <template>
-  <v-tabs
-    fixed-tabs
-    background-color="indigo"
-    dark
-  >
-    <v-tab>
-      Option
-    </v-tab>
-    <v-tab>
-      Another Selection
-    </v-tab>
-    <v-tab>
-      Items
-    </v-tab>
-    <v-tab>
-      Another Screen
-    </v-tab>
-  </v-tabs>
+
+<v-app-bar density="compact">
+      <v-app-bar-title>Tu Cat</v-app-bar-title>
+  
+      <v-spacer></v-spacer>
+      <v-btn text><router-link to="/">Home</router-link></v-btn>
+      <v-btn class="mr-3" text><router-link to="/favorite">Favoritos</router-link></v-btn>
+      <router-view/>
+    </v-app-bar>
 </template>
 
 <script>
   export default {
-    data () {
-  }
+    name: 'Navbar',
+    data: () => ({
+    //
+  }),
   }
 </script>

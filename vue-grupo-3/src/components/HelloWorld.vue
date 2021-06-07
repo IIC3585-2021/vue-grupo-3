@@ -12,6 +12,7 @@
     </v-img>
     <v-btn
     class="float-right"
+    v-on:click="favorite"
     icon>
       <v-icon color="pink">mdi-star</v-icon>
     </v-btn>
@@ -58,6 +59,7 @@
 
 <script>
 import logo from '../assets/logo.svg'
+import store from '../store'
 // import { ref } from "vue";
 // import image from '../main'
 
@@ -105,8 +107,13 @@ export default {
             console.log(json);
             this.cat = json[0].url;
         });
+    },
+    favorite: function() {
+      store.dispatch('addFavorite', {
+        fav: this.cat
+        })
+      console.log(store.state.favorites)
     }
-
   },
   created() {
     fetch("https://api.thecatapi.com/v1/images/search", 

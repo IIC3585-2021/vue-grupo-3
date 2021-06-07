@@ -1,30 +1,40 @@
 <template>
-  <v-app>
-    <v-main>
-      <Navbar/>
-      <HelloWorld/>
-      <Select/>
-    </v-main>
-  </v-app>
+  <div id="nav">
+    <router-link to="/">Home</router-link> |
+    <router-link to="/favorite">Favorite</router-link>
+  </div>
+  <router-view/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Select from './components/Select.vue'
-import Navbar from './components/Navbar.vue'
-// import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-
   components: {
-    HelloWorld,
-    Select,
-    Navbar,
-  },
-
-  data: () => ({
-    //
-  }),
+  }
 }
 </script>
+
+
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
+</style>
