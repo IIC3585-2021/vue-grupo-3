@@ -12,6 +12,7 @@
     </v-img>
     <v-btn
     class="float-right"
+    :disabled="isDisabled"
     v-on:click="favorite"
     icon>
       <v-icon color="pink">mdi-star</v-icon>
@@ -67,11 +68,13 @@ export default {
   name: 'HelloWorld',
   data: () => ({
     logo,
+    isDisabled : false,
     cat: {
     },
   }),
   methods: {
     sunglasses: function () {
+      this.isDisabled = false;
       fetch("https://api.thecatapi.com/v1/images/search?category_ids=4", 
         {headers: {"x-api-key" : "297ece98-a6ac-419d-9d86-fbe4c3ccdeac"}})
         .then((response) => {
@@ -81,6 +84,7 @@ export default {
         });
     },
     space: function () {
+      this.isDisabled = false;
       fetch("https://api.thecatapi.com/v1/images/search?category_ids=2", 
         {headers: {"x-api-key" : "297ece98-a6ac-419d-9d86-fbe4c3ccdeac"}})
         .then((response) => {
@@ -90,6 +94,7 @@ export default {
         });
     },
     hats: function () {
+      this.isDisabled = false;
       fetch("https://api.thecatapi.com/v1/images/search?category_ids=1", 
         {headers: {"x-api-key" : "297ece98-a6ac-419d-9d86-fbe4c3ccdeac"}})
         .then((response) => {
@@ -99,6 +104,7 @@ export default {
         });
     },
     gif: function () {
+      this.isDisabled = false;
       fetch("https://api.thecatapi.com/v1/images/search?mime_types=gif", { 
         headers: {"x-api-key" : "297ece98-a6ac-419d-9d86-fbe4c3ccdeac"}})
         .then((response) => {
@@ -109,6 +115,7 @@ export default {
         });
     },
     favorite: function() {
+      this.isDisabled = true;
       store.dispatch('addFavorite', {
         fav: this.cat
         })
