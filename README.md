@@ -13,7 +13,7 @@
 
 ## Presentación
 
-- Puedes encontrar nuestra presentación [aquí](https://docs.google.com/presentation/d/1Ce3iCIR4_ltsSzCErTPfF18FSaPOsojpVTuiJWatqXI/edit?usp=sharing)
+- Puedes encontrar nuestra presentación [aquí](https://docs.google.com/presentation/d/1fINxN5k-iy9gHYd_80jUudKQrpaS5LAMYitpp93aB6U/edit?usp=sharing)
 
 ## Referencias
 - [Documentación Vue](https://v3.vuejs.org/guide/introduction.html)
