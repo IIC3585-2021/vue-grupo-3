@@ -59,13 +59,11 @@
 </template>
 
 <script>
-import logo from '../assets/logo.svg'
 import store from '../store'
 
 export default {
-  name: 'HelloWorld',
+  name: 'Principal',
   data: () => ({
-    logo,
     isDisabled : false,
     cat: {
     },
