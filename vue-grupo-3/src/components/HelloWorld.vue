@@ -60,8 +60,6 @@
 <script>
 import logo from '../assets/logo.svg'
 import store from '../store'
-// import { ref } from "vue";
-// import image from '../main'
 
 export default {
   name: 'HelloWorld',
@@ -104,7 +102,6 @@ export default {
         .then((response) => {
           return response.json()
         }).then((json) => {
-            console.log(json);
             this.cat = json[0].url;
         });
     },
@@ -112,7 +109,6 @@ export default {
       store.dispatch('addFavorite', {
         fav: this.cat
         })
-      console.log(store.state.favorites)
     }
   },
   created() {
@@ -121,7 +117,6 @@ export default {
         .then((response) => {
           return response.json()
         }).then((json) => {
-            console.log(json);
             this.cat = json[0].url;
         });
   },
